@@ -1,0 +1,284 @@
+data types
+
+Numbers
+Boolean, true and false
+
+In Python, whitespace is used to structure code. Whitespace is 
+
+important, so you have to be careful with how you use it.
+
+IndentationError: expected an indented block
+You'll get this error whenever your whitespace is off.
+
+To do comments use #. If it uses more than one line of code use 
+
+""" xxx """
+
+For exponentials, use **, ex. 10 ** 2 = 100
+
+Variables, which store values for later use
+Data types, such as numbers and booleans
+Whitespace, which separates statements
+Comments, which make your code easier to read
+Arithmetic operations, including +, -, *, /, **, and %
+
+A string can contain letters, numbers, and symbols.Strings need to 
+
+be within quotes.
+
+An apostrophy inside a comment breaks the comment because python 
+
+thinks it is finished. To solve this, we use a backslash (\) 
+
+before the apostrophy.
+
+Each character in a string is assigned a number. This number is 
+
+called the index.
+---+---+---+---+---+---+
+| P | Y | T | H | O | N |
++---+---+---+---+---+---+
+  0   1   2   3   4   5
+
+
+So if you wanted "Y", you could just type
+"PYTHON"[1] (always start counting from 0!)
+"""
+
+Great work! Now that we know how to store strings, let's see how 
+
+we can change them using string methods.
+
+String methods let you perform specific tasks for strings.
+
+String methods:
+
+
+Let's start with len(), which gets the length (the number of 
+
+characters) of a string!
+-------
+
+You can use the lower() method to get rid of all the 
+
+capitalization in your strings. Example:
+
+parrot = "Norwegian Blue"
+print parrot.lower()
+------------
+
+Now your string is 100% lower case! A similar method exists to 
+
+make a string completely upper case. upper()
+
+parrot = "Norwegian Blue"
+print parrot.upper()
+
+---------------------
+
+
+Now let's look at str(), which is a little less straightforward. 
+
+The str() method turns non-strings into strings! 
+
+str(2)
+
+Turns 2 into "2"
+
+pi = 3.14
+print str(pi)
+--------------------
+
+
+Dot Notation
+
+Let's take a closer look at why you use len(string) and str
+
+(object), but dot notation (such as "String".upper()) for the 
+
+rest.
+
+lion = "roar"
+len(lion)
+lion.upper()
+Methods that use dot notation only work with strings.
+
+On the other hand, len() and str() can work on other data types.
+
+
+-------------
+String Concatenation
+
+The + operator between strings will 'add' them together, one after 
+
+the other. 
+
+Combining strings together like this is called concatenation. 
+
+Explicit String Conversion
+Sometimes you need to combine a string with something that isn't a 
+
+string. In order to do that, you have to convert the non-string 
+
+into a string.
+
+-----------------
+
+String Formatting with %, Part 1
+When you want to print a variable with a string, there is a better 
+
+method than concatenating strings together.
+
+name = "Mike"
+print "Hello %s" % (name)
+
+The % operator after a string is used to combine a string with 
+
+variables. The % operator will replace a %s in the string with the 
+
+string variable that comes after it.
+
+String Formatting with %, Part 2
+Remember, we used the % operator to replace the %s placeholders 
+
+with the variables in parentheses.
+
+
+EXAMPLE
+
+name = raw_input("What is your name?")
+quest = raw_input("What is your quest?")
+color = raw_input("What is your favorite color?")
+
+print "Ah, so your name is %s, your quest is %s, " \
+"and your favorite color is %s." % (name, quest, color)
+
+
+RESULT
+What is your name? Adrian
+What is your quest? String Formatting
+What is your favorite color? Blue
+Ah, so your name is Adrian, your quest is String Formatting, and 
+
+your favorite color is Blue.
+
+----------------------
+
+The datetime Library
+A lot of times you want to keep track of when something happened. 
+
+We can do so in Python using datetime.
+
+Getting the Current Date and Time
+We can use a function called datetime.now() to retrieve the 
+
+current date and time.
+
+from datetime import datetime
+
+print datetime.now()
+The first line imports the datetime library so that we can use it.
+
+The second line will print out the current date and time.
+
+-----------------------
+
+Extracting Information
+Notice how the output looks like 2013-11-25 23:45:14.317454. What 
+
+if you don't want the entire date and time?
+
+from datetime import datetime
+now = datetime.now()
+
+current_year = now.year
+current_month = now.month
+current_day = now.day
+You already have the first two lines.
+
+In the third line, we take the year (and only the year) from the 
+
+variable now and store it in current_year.
+
+In the fourth and fifth lines, we store the month and day from 
+
+now.
+
+----------------------------
+
+Hot Date
+What if we want to print today's date in the following format? 
+
+mm/dd/yyyy. Let's use string substitution again!
+
+from datetime import datetime
+now = datetime.now()
+
+print '%s-%s-%s' % (now.year, now.month, now.day)
+# will print: 2014-02-19
+Remember that the % operator will fill the %s placeholders in the 
+
+string on the left with the strings in the parentheses on the 
+
+right.
+
+In the above example, we print 2014-02-19 (if today is February 
+
+19th, 2014), but you are going to print out 02/19/2014.
+
+-----------------------------
+
+Grand Finale
+
+from datetime import datetime
+now = datetime.now()
+
+print '%s/%s/%s %s:%s:%s' % (now.month, now.day, now.year, 
+
+now.hour, now.minute, now.second)
+
+
+----------------------
+
+Conditionals & Control Flow
+
+
+Control flow gives us this ability to choose among outcomes based 
+
+off what else is happening in the program.
+
+-------------------------
+
+To Be and/or Not to Be
+Boolean operators compare statements and result in boolean values. 
+
+There are three boolean operators:
+
+and, which checks if both the statements are True;
+or, which checks if at least one of the statements is True;
+not, which gives the opposite of the statement.
+
+
+----------------
+
+Or
+The boolean operator or returns True when at least one expression on either side of or is true.
+
+---------------
+
+Not
+The boolean operator not returns True for false statements and False for true statements.
+
+-----------------
+
+This and That (or This, But Not That!)
+Boolean operators aren't just evaluated from left to right. Just like with arithmetic operators, there's an order of operations for boolean operators:
+
+not is evaluated first;
+and is evaluated next;
+or is evaluated last.
+For example, True or not False and False returns True. If this isn't clear, look at the Hint.
+
+Parentheses () ensure your expressions are evaluated in the order you want. Anything in parentheses is evaluated as its own unit.
+
+------------------------
