@@ -1,0 +1,177 @@
+>> a = [11 22 33;44 55 66;77 88 99]
+
+a =
+
+    11    22    33
+    44    55    66
+    77    88    99
+
+>> a(end,end) %last row last column
+
+ans =
+
+    99
+
+>> size(a) %number of rows number of columns
+
+ans =
+
+     3     3
+
+>> [var1 var2]=size(a)
+
+var1 =
+
+     3
+
+
+
+var2 =
+
+     3
+    
+    >>  a(:,:) %all elements in the matrix
+
+ans =
+
+    11    22    33
+    44    55    66
+    77    88    99
+
+>> a
+
+a =
+
+    11    22    33
+    44    55    66
+    77    88    99
+
+>> a(:) %all elements in "a" as a linear index
+
+ans =
+
+    11
+    44
+    77
+    22
+    55
+    88
+    33
+    66
+    99
+     
+     >> b=[1 2 3; 4 5 6; 7 8 9]
+
+b =
+
+     1     2     3
+     4     5     6
+     7     8     9
+
+>> c = a
+
+c =
+
+    11    22    33
+    44    55    66
+    77    88    99
+
+>> c(:,:,2) = b  % rows, columns, 
+
+c(:,:,1) =
+
+    11    22    33
+    44    55    66
+    77    88    99
+
+
+c(:,:,2) =
+
+     1     2     3
+     4     5     6
+     7     8     9
+
+>> % this is a stack of matrix.
+>> c(2,2,1)
+
+ans =
+
+    55
+
+>> c(2,2,2)
+
+ans =
+
+     5
+
+>> %it is like one matrix is just in front of the other, there are two layers, so by using c(2,2,2) you are
+>> %choosing second row, second column second layer. if you do c(2,2,1) you are chosing first layer.
+
+>> c(1,2,2)=444 %here you say, that row 1, column 2 and layer 2 is going to be 444.
+
+c(:,:,1) =
+
+    11    22    33
+    44    55    66
+    77    88    99
+
+
+c(:,:,2) =
+
+     1   444     3
+     4     5     6
+     7     8     9
+    
+%%%%%%%%%%%%%%%%%%%%%%    
+
+>> fliplr(a) %flip from left to right flip'lr' matrix a
+
+ans =
+
+    33    22    11
+    66    55    44
+    99    88    77
+
+>> flipud(a)
+
+ans =
+
+    77    88    99
+    44    55    66
+    11    22    33
+
+>> rot90(a)
+
+ans =
+
+    33    66    99
+    22    55    88
+    11    44    77
+
+>> %flipud(a) flips the matrix from up to down. rot90 rotates the matrix 90º
+     
+     
+>> a=rand(1,10)
+
+a =
+
+    0.8147    0.9058    0.1270    0.9134    0.6324    0.0975    0.2785    0.5469    0.9575    0.9649
+
+>> b=rand(1,10)
+
+b =
+
+    0.1576    0.9706    0.9572    0.4854    0.8003    0.1419    0.4218    0.9157    0.7922    0.9595
+
+
+>> clear c
+>> plot(a) %plots a linechart 
+>> %to change the color you need a second argument:
+> plot(a,'r')
+>> % r = red
+>> plot(a,'ob')
+>> %plots blue circles
+>> plot(a,'+r')
+>> %plots red "+"
+
+plot(a,b) %plots a scatterplot
