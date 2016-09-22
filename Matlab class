@@ -175,3 +175,51 @@ b =
 >> %plots red "+"
 
 plot(a,b) %plots a scatterplot
+plot(a,b,'+') %scatterlpot with '+' instead of lines
+
+%to write labels in the graph:
+xlabel('text')
+ylabel('text')
+title('title of the graph')
+
+% edit > figure properties (to manupulate the properties of the chart)
+
+>> hold on %means, do things on the same plot that i have created before
+>> plot(b,'r')
+>> hold off %the old chart is going to be updated with the new information
+
+>> %information of colors and simbols in: help plot
+>> help plot
+
+
+ plot([a b],'b')
+>> plot([a' b'],'b')
+>> %first one creates a new vector that consists in a followed by b.
+>> % in the second one, with quotation marks, matlab plots both lines in a graph
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+a=rand(1,1000);
+>> %with ; at the end of the formula, matlab doesn't display the numbers. in this case 1000
+>> hist(a) %histogram
+>> hist(a,5) %plots historgam in 5 intervals
+
+a=rand(1000);
+>> hist(a) 
+>> %it is going to create 10 histograms for 3 columns
+>> hist(a(:)) %is going to attach all the columns in one very large column
+>> %because the inpunt now is not a matrix, it is a single column.
+
+save asd %matlab default extension is .mat / to change the path, go to the top of the screen (current folder) 
+load asd %loads this archive
+
+ save asde a b c
+>> clear all
+>> load asde
+>> % here we decided to save it with the name "asde" and only variables 'a' 'b' and 'c'. and then we load it in matlab.
+
+>> xlswrite('aaa.xls',c) %command to save as a xls document
+>> % here we expor to excel the variable c.
+
+xlsread('aaa.xls') %to import to matlab an .xls document
+
