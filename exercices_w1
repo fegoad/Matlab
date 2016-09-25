@@ -1,0 +1,71 @@
+>> aw_silicon=28.085
+
+aw_silicon =
+
+   28.0850
+
+>> myage=22
+
+myage =
+
+    22
+
+>> myage= myage-1
+
+myage =
+
+    21
+
+>> myage= myage+2
+
+myage =
+
+    23
+
+>> 
+>> RT=1/((1/R1)+(1/R2)+(1/R3))
+
+>> kilos=1;
+>> pounds=2.2;
+>> kilograms=kilos*pounds
+kilograms =
+    2.2000
+    
+    
+    >> ftemp=50
+ftemp =
+    50
+>> ctemp=(ftemp-32)*5/9
+ctemp =
+    10
+>> ftemp=100
+ftemp =
+   100
+>> ctemp
+ctemp =
+    10
+>> ctemp=(ftemp-32)*5/9
+ctemp =
+   37.7778
+>> 
+
+sind(90)
+
+>> T=30
+T =
+    30
+>> V=50
+V =
+    50
+>> WCF = 35.7 + 0.6*T - 35.7*(V^0.16) + 0.43*T*(V^0.16)
+WCF =
+   11.0646
+   
+ >> sqrt(19)
+ans =
+    4.3589
+>> exp(1.2)
+ans =
+    3.3201
+>> 
+
