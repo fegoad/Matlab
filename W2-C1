@@ -1,0 +1,36 @@
+
+>> a.^3
+
+ans =
+
+     1     8
+    27    64
+
+>> %each element squared to the power of 3. A dot does the operation at a element level 
+%to operate at a matrix level, do not use the dot.
+
+>> a.^3
+
+ans =
+
+     1     8
+    27    64
+
+>> %each element squared to the power of 3
+>> a+3 %add 3 to every single elements in a
+
+ans =
+
+     4     5
+     6     7
+
+>> a*5 %multiply each element in the basic matrix by 5
+
+ans =
+
+     5    10
+    15    20
+    
+    
+    
+    
