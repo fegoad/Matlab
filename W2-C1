@@ -237,3 +237,106 @@ ans =
    25.3293
    28.2963
     4.5605
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+>> 2+'2'
+ans =
+    52
+>> %matlab transforms '2' into the integral representation of number 2, whichi is 50
+>> char(50)
+ans =
+2
+>> %transform the character into its number
+>> double('2')
+ans =
+    50
+>> %opposite process
+
+>> %display, given a string will displayit
+>> disp('My string')
+My string
+>> disp(a)
+My text 2
+>> %concatenate strings
+>> c=[a b]
+c =
+My text 2My text 3
+>>  c=[c ' ' b]
+c =
+My text 2My text 3 My text 3
+>> c=[a ' ' b]
+c =
+My text 2 My text 3
+
+
+
+
+>> fprintf('The content of var a is ')
+The content of var a is >> fprintf('The content of var a is \n')
+The content of var a is 
+>> a=3;
+>> fprintf('The content of var a is %d\n',3) % %d->there is something to insert here. After the comma you provide the number to insert in %d
+The content of var a is 3
+>> fprintf('The content of var a is %d\n',a) % %d->there is something to insert here. After the comma you provide the number to insert in %d
+The content of var a is 3
+
+>> b=5;
+>> fprintf('The content of var a is %d\n and var b is %d\n',a,b) % %d->there is something to insert here. After the comma you provide the number to insert in %d
+The content of var a is 3
+ and var b is 5
+ 
+ 
+ 
+ %%%%%%%%%%%%%%%%%%%%%
+ 
+ SCRIPT MATLAB:
+ 
+ myvec=rand(1,100);
+thesum=sum(rand);
+disp('The sum of the elements is: ')
+disp(thesum)
+
+OUTPUT
+
+The sum of the elements is: 
+    0.1518
+    
+    
+    
+Script 2:
+
+vectorsize=input('Type vector size:');%asks the user a for a number, then continues the code
+myvec=rand(1,vectorsize); %as many random numbers that the user requests
+thesum=sum(rand);
+disp('The sum of the elements is: ')
+disp(thesum)
+
+
+
+
+>> textinput=input('Type your name:','s')
+Type your name:Adrián
+textinput =
+Adrián
+>> textinput=input('Type your name:')
+Type your name:Adrián
+??? Adrián
+        |
+Error: The input character is not valid in MATLAB statements or expressions.
+ 
+>> textinput=input('Type your name:')
+Type your name:5
+textinput =
+     5
+     
+
+FINAL SCRIPT:
+
+textinput=input('Type your name:','s');%'s' because you expect a string
+vectorsize=input('Type vector size:');%asks the user a for a number
+myvec=rand(1,vectorsize); %as many random numbers that the user requests
+thesum=sum(rand);
+disp([textinput ', The sum of the elements is: '])%Concat. the tect and number
+disp(thesum)
