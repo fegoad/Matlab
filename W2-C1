@@ -33,4 +33,207 @@ ans =
     
     
     
-    
+data=xlsread('sandp500.xls') %import the document .xls to matlab
+
+ret=(data(2:end)-data(1:end-1))./data(1:end-1) %./ because we divide at the element level.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+>> data=xlsread('regdata.xls')
+
+data =
+
+    5.0000   16.4653
+    2.0000    7.4853
+    3.0000   10.3196
+    4.0000   13.9649
+    3.0000   10.0632
+    5.0000   16.0135
+    6.0000   19.3327
+    7.0000   22.2720
+   10.0000   31.1515
+    8.0000   25.6688
+    9.0000   28.3890
+    1.0000    4.9160
+
+>> size(data)
+
+ans =
+
+    12     2
+
+>> x=data(:,1)
+
+x =
+
+     5
+     2
+     3
+     4
+     3
+     5
+     6
+     7
+    10
+     8
+     9
+     1
+
+>> y=data(:,2)
+
+y =
+
+   16.4653
+    7.4853
+   10.3196
+   13.9649
+   10.0632
+   16.0135
+   19.3327
+   22.2720
+   31.1515
+   25.6688
+   28.3890
+    4.9160
+
+>> inv(x'*x)*x'*y;
+>> coef=ans
+
+coef =
+
+    3.2066
+
+>> X=x;
+>> Y=y;
+>> X2=[ones(12,1) X] %X2 structure of ones followerd by X
+
+X2 =
+
+     1     5
+     1     2
+     1     3
+     1     4
+     1     3
+     1     5
+     1     6
+     1     7
+     1    10
+     1     8
+     1     9
+     1     1
+
+>> X2=[ones(size(X)) X] %X2 structure of ones followerd by X. number of columns and rows of X
+
+X2 =
+
+     1     5
+     1     2
+     1     3
+     1     4
+     1     3
+     1     5
+     1     6
+     1     7
+     1    10
+     1     8
+     1     9
+     1     1
+
+>> mymat=[1 2 3; 4 5 6];
+
+>> size(mymat)
+
+ans =
+
+     2     3
+
+>> size(mymat,1) %only I want the number of rows
+
+ans =
+
+     2
+
+>> format compact
+>> size(mymat,2) %second dimension (columns9
+ans =
+     3
+>> VarX=rand(12,2);
+>> ones(size(VarX))
+ans =
+     1     1
+     1     1
+     1     1
+     1     1
+     1     1
+     1     1
+     1     1
+     1     1
+     1     1
+     1     1
+     1     1
+     1     1
+>> size(VarX)
+ans =
+    12     2
+>> ones(size(VarX,1)) %?????????????????????
+ans =
+     1     1     1     1     1     1     1     1     1     1     1     1
+     1     1     1     1     1     1     1     1     1     1     1     1
+     1     1     1     1     1     1     1     1     1     1     1     1
+     1     1     1     1     1     1     1     1     1     1     1     1
+     1     1     1     1     1     1     1     1     1     1     1     1
+     1     1     1     1     1     1     1     1     1     1     1     1
+     1     1     1     1     1     1     1     1     1     1     1     1
+     1     1     1     1     1     1     1     1     1     1     1     1
+     1     1     1     1     1     1     1     1     1     1     1     1
+     1     1     1     1     1     1     1     1     1     1     1     1
+     1     1     1     1     1     1     1     1     1     1     1     1
+     1     1     1     1     1     1     1     1     1     1     1     1
+>> ones(size(VarX,1),1)%First we say the number of rows, then coma and the number of columns. In this case 1.
+ans =
+     1
+     1
+     1
+     1
+     1
+     1
+     1
+     1
+     1
+     1
+     1
+     1
+>> X2=[ones(size(X,1),1) X] %Number of rows of X that we want, followed by a single column. followed by variable X
+
+the position of X determines the position of the constant.
+
+X2 =
+     1     5
+     1     2
+     1     3
+     1     4
+     1     3
+     1     5
+     1     6
+     1     7
+     1    10
+     1     8
+     1     9
+     1     1
+     
+     >> X2*Coef2
+ans =
+   16.4284
+    7.5275
+   10.4945
+   13.4614
+   10.4945
+   16.4284
+   19.3954
+   22.3624
+   31.2633
+   25.3293
+   28.2963
+    4.5605
