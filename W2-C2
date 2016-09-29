@@ -1,0 +1,48 @@
+>> a = 3
+
+a =
+
+     3
+
+>> fprintf('The content of var a is %d',a)
+%after the"%" we specify the format. the most relevant is %d which is for integers, %f for reals %s for strings.
+The content of var a is 3>> %if you want a new line you need a special character: \n
+>> fprintf('The content of var a is %d\n',a)
+The content of var a is 3
+>> %if you want to put a tab, you use \t.
+>> fprintf('The content of var a is %d tab \t tab\n',a)
+The content of var a is 3 tab 	 tab
+>> fprintf('The content of var a is %f\n',a)
+The content of var a is 3.000000
+>> b='string';
+>> fprintf('The content of var a is %s\n',b)
+The content of var a is string
+>> fprintf('The content of var a is %d\n',b)
+The content of var a is 115
+The content of var a is 116
+The content of var a is 114
+The content of var a is 105
+The content of var a is 110
+The content of var a is 103
+>> %What happened is that,internally encoded the text in a decimal value. So the content
+% of variable b for matlab is a veector of 6 different integers/values so matlab is 
+>> %computing every string individually as a value.
+
+>> fprintf('The content of var a is %d and var b is %s\n',a,b) %place after comas matters.
+The content of var a is 3 and var b is string
+
+%if you want to make appear a slash \ you need to put it twice, otherwise it will
+%compute an error.
+>> fprintf('The content of var \\ a is %d and var b \\ is %s\n',a,b) %place after comas matters.
+The content of var \ a is 3 and var b \ is string
+
+fprintf('The content of var a is %.2f and\n',4) %use %.xf where x is the number of decimals you want
+The content of var a is 4.00 and
+
+>> fprintf('The content of var a is %10.3f and\n',4) %use %.xf where x is the number of decimals you want
+The content of var a is      4.000 and
+>> %the number right after the % does an space of 10 spaces and then is followed by the number with 3 decimals
+
+
+
+
