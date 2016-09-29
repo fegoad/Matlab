@@ -43,6 +43,16 @@ The content of var a is 4.00 and
 The content of var a is      4.000 and
 >> %the number right after the % does an space of 10 spaces and then is followed by the number with 3 decimals
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+Exercises class 2
+1.
+
+text=input('What is your name?','s');
+age=input('What is your age?');
+fprintf('Your name is %s and your age is %d\n',text,age) 
+
+2.
 
 
