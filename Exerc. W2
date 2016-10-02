@@ -50,3 +50,25 @@ The real number is 6.00
 -in a field width of 2 with four decimal places
      >> fprintf('The real number is %2.4f\n',12345.6789)
      The real number is 12345.6789     
+     
+     
+9.
+
+%This script calculates the area of a rectangle
+
+%Asks the user to prompt the length and width of the rectangle
+reclength=input('Enter the length of the rectangle: ');
+recwidth=input('Enter the width of the rectangle: ');
+
+%Calculate the area of the rectangle
+recarea=reclength*recwidth;
+
+%Print the area of the rectangle with two decimal places only
+fprintf('The area of the rectangle is %.2f\n',recarea)
+
+
+
+>> script2
+Enter the length of the rectangle: 2
+Enter the width of the rectangle: 4
+The area of the rectangle is 8.00
