@@ -1,0 +1,26 @@
+1.
+
+%This script calculates the volume of a hollow sphere.
+
+%Input for inner radius
+inrad=input('Enter the inner radius: ');
+%Input for outer radius
+outrad=input('Enter the outer radius: ');
+
+hollsphvol=(4*pi/3)*(outrad^3-inrad^3);
+
+%Print the result
+fprintf('The volume of the hollow sphere is %d\n',hollsphvol)
+
+3.
+
+>> chemelement=input('Enter the name of a chemical element: ','s')
+Enter the name of a chemical element: Krypton
+chemelement =
+Krypton
+>> length(chemelement)
+ans =
+     7
+     
+4.
+
