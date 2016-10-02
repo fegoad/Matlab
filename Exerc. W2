@@ -72,3 +72,33 @@ fprintf('The area of the rectangle is %.2f\n',recarea)
 Enter the length of the rectangle: 2
 Enter the width of the rectangle: 4
 The area of the rectangle is 8.00
+
+
+
+
+Global 2.
+
+%Sum of a vector of random variables with mean "v"
+
+%Prompt the user to enter the size of a vector
+vecsize=input('Please, enter the vector size:');
+%Mean value used to calculate a normal distribution of random numbers
+meanval=input('Type a value "v" for the mean:');
+%Ask the user name
+username=input('Enter your name, please:','s');
+
+%Creates a vector of normally distributed random numbers with mean equal to
+%"meanval" and size equal to "vecsize" and sum its components
+randvector=meanval*randn(1,vecsize)*sqrt(1); 
+thesum=sum(randvector);
+
+%Display the result
+fprintf('%s, the sum is %f, trust me\n',username,thesum)
+%Plots a histogram with the data inside the vector
+hist(randvector,5)
+xlabel('Values')
+ylabel('Frequency')
+title('My Histogram')
+
+
+
