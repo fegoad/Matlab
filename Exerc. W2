@@ -24,3 +24,29 @@ ans =
      
 4.
 
+>> realnum=input('Enter a real number: ');
+Enter a real number: 6
+>> fprintf('The real number is %.2f\n',realnum)
+The real number is 6.00
+
+6.
+
+-without specifying any field width:
+     >> fprintf('The real number is %f\n',12345.6789)
+     The real number is 12345.678900
+     
+-in a field width of 10 with four decimal places
+     >> fprintf('The real number is %10.4f\n',12345.6789)
+     The real number is 12345.6789
+
+-in a field width of 10 with two decimal places
+     >> fprintf('The real number is %10.2f\n',12345.6789)
+     The real number is   12345.68
+
+-in a field width of 6 with four decimal places
+     >> fprintf('The real number is %6.4f\n',12345.6789)
+     The real number is 12345.6789
+
+-in a field width of 2 with four decimal places
+     >> fprintf('The real number is %2.4f\n',12345.6789)
+     The real number is 12345.6789     
