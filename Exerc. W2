@@ -101,4 +101,40 @@ ylabel('Frequency')
 title('My Histogram')
 
 
+Global 3.
+
+function [spreturn] = requestsandp
+    spreturn=input('Enter a percent return value for S&P500:');
+    spreturn=spreturn/100;
+end
+
+
+%This script calculates the expected value of IBEX35 given a return
+%in S&P500 based on an linear regression estimate.
+
+%Import the request onf S&P500 return made by the user
+[spreturn]=requestsandp();
+%Import data from the spreadsheet
+data=xlsread('ibexandsp.xls');
+%Compute index returns for ibex35 and s&p500
+retibex=((data(1:end-1,1)-data(2:end,1))./(data(2:end,1)));
+retsandp=(data(1:end-1,2)-data(2:end,2))./(data(2:end,2));
+%plot time series
+plot(retibex,'r')
+hold on
+plot(retsandp,'b')
+hold off
+title('Returns ibex35 / s&p500')
+legend('Ibex35','s&p500')
+%coefficient calculations
+y=retibex;
+x=retsandp;
+X2=[ones(size(x,1),1) x];
+coef=inv(X2'*X2)*X2'*y;
+%expected value calculation for the IBEX35
+predibex=coef(1)+coef(2)*spreturn;
+%Transform the expected return of the ibex as a precentage
+predibexprec=predibex*100;
+%Display the expected return for the IBEX35
+fprintf('The expecter return of the IBEX35 for the next trading day is: %.2f%%\n',predibexprec)
 
