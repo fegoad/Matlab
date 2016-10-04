@@ -144,21 +144,28 @@ a =
 >> 1<=a<=3
 ans =
      1
+%what happens? This happens because of the way matlab parses the expression. Matlab works from left to
+%right, evaluates this expression. so: 1<=a?? Yes, it is true. then, matlab says. is TRUE smaller
+%or equal to 3?? The answer is Yes. 
+%Matlab has transformed 1<=a into 1. then, of course it is smaller than 3. However, this is not the
+%outcome we were expecting.
      
-     
->> a=[123]
-a =
-   123
->> b=[124]
-b =
-   124
->> c=[123]
-c =
-   123
+>>  a=[1 2 3];
+>> b=[1 2 4];
+>> c=[1 2 3];
 >> a==b
 ans =
-     0
+     1     1     0
 >> a==c
+ans =
+     1     1     1
+>> isequal(a,b)
+ans =
+     0
+>> isequal(a,c)
+ans =
+     1
+>> 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%
@@ -169,3 +176,84 @@ ans =
 
 %isequal for vectors and time structures
 %strcmp use for strings (to avoid the problems previously commented)
+
+%%%%%%%%%%%%%%%%%%%%%%
+ORDER FLOW
+%%%%%%%%%%%%%%%%%%%%%%
+
+-------if-then:
+
+if condition
+         Statement(s)	
+end
+
+-------if-then-else:
+
+if condition
+     Statement(s) I	
+else
+S    tatements(s) II	
+end
+
+-------Nested if-then:
+
+if condition I	
+     if condition II	
+          Statement(s)	
+     end
+end
+
+
+if condition I	
+     if condition II	
+          Statement(s) II	
+     else
+          Statement(s) I	
+     end
+end
+--------------
+
+if Cond. I	
+     if Cond. II	
+           if Cond. III	
+	 	     Stat. IV	
+           else
+               Stat. III
+          end
+     else 	
+          Stat. II
+     end
+else
+     Stat. I	
+end
+
+
+-------elseif
+
+if Cond. I	
+     Stat. I
+else
+     if Cond. II	
+          Stat. II
+     else
+           if Cond. III	
+	 	       Stat. III	
+          else
+               Stat. IV
+          end
+     end
+end
+
+------
+
+if Condition I	
+          Statement(s) I
+elseif Condition II	
+          Statement(s) II
+elseif Condition III	
+          Statement(s) III	
+else
+          Statement(s) IV
+end
+
+
