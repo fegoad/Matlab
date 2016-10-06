@@ -1,0 +1,34 @@
+%FUNCTION
+
+function [integeroutput]=even1odd2(integerinput)
+if rem(integerinput,2)==0
+    integeroutput=1;
+else 
+    integeroutput=2;
+end
+
+%SCRIPT
+
+integerinput=input('Please enter an integer: ');
+[integeroutput]=even1odd2(integerinput);
+if integeroutput==1
+    fprintf('Number %d is even\n',integerinput)
+else
+    fprintf('Number %d is odd\n',integerinput)
+end
+
+
+%Function thelargest elsif method
+
+function [] = thelargest(x,y,z)
+
+if x>y&&x>z
+    fprintf('Number %d is larger than the other two\n',x);
+elseif y>x&&y>z
+    fprintf('Number %d is larger than the other two\n',y);
+elseif z>x&&z>y
+    fprintf('Number %d is larger than the other two\n',z);
+else
+    fprintf('Two or more numbers are equal\n');
+end
+
