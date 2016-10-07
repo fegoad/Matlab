@@ -18,4 +18,43 @@ vectorincrease=(y:(y+5));
 
 end
 
+Chapter 3 ex 1
 
+>> 'b'>='c'-1
+ans =
+  logical
+   1
+>> 3==2+1
+ans =
+  logical
+   1
+>> (3==2)+1
+ans =
+     1
+>> xor(5<6,8>4)
+ans =
+  logical
+   0
+>> 
+
+
+Chapter 3 ex 2
+
+inputval=input('Please, enter an ''x'':','s');
+if inputval ~= 'x'
+    disp('Error, you have not entered an ''x''')
+else
+end 
+
+
+Chapter 3 ex 13
+
+inputvariable=input('Enter your answer: ','s');
+letter=inputvariable;
+if (letter=='y')||(letter=='Y')
+    disp('OK, continuing');
+elseif (letter=='n')||(letter=='N')
+    disp('OK, halting');
+else 
+    disp('Error')
+end
