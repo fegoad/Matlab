@@ -58,3 +58,15 @@ elseif (letter=='n')||(letter=='N')
 else 
     disp('Error')
 end
+
+
+
+Homework File, Exercise 4
+
+function [ coef ] = myreg(x,y)
+%Calculate the regression coefficients between the columns x and y
+
+X2=[ones(size(x,1),1) x];
+coef=inv(X2'*X2)*X2'*y;
+
+end
