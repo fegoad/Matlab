@@ -1,0 +1,21 @@
+Chapter 2 ex 35
+
+function [randelement] = pickone(x)
+%This function returns a random element from the vector x
+
+randelement=randi([min(x) max(x)],1,1);
+
+end
+
+
+Chapter 2 ex 36
+
+function [ vectorincrease ] = vecout( y )
+%This function recives an integer as an input and returns a vector
+%that increments its value plus 5
+
+vectorincrease=(y:(y+5));
+
+end
+
+
