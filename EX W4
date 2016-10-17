@@ -1,0 +1,94 @@
+Book ex.1
+for i=1.5:0.2:3.1
+    fprintf('%0.2f\n',i)
+end
+
+
+Book ex.2
+function [ outc ]= sumsteps2(input)
+outc=0;
+for i=1:2:input
+    outc=i+outc;   
+end
+end
+
+Book ex.24
+while x < 10
+    action
+end
+
+This loop is going to be skipped when the value of x is equal or bigger than 10.
+If the variable is x is initiated to have the value 5 before the loop, the action has to include the code “break”. If there is an infinite loop, it is going to stop the loop and go to the end. It would like this:
+while x < 10
+    action
+    break
+end
+
+HomeworkSheet. Ex.3
+function showindexeddata( myData,myIndices)
+    for i=1:length(myIndices)
+        disp(myData(myIndices(i)))  
+    end
+end
+
+HomeworkSheet. Ex.4
+v1=input('Enter a vector: ');
+k=length(v1);
+for i=1:length(v1)
+    v2(i)=v1(k);
+    k=k-1;
+end
+disp(v1)
+disp(v2)
+HomeworkSheet. Ex.5
+function [ newvec ] = insertdata(myvector,mynum)
+    if (mynum<myvector(1))
+        newvec=[mynum myvector(1:end)];
+    elseif mynum>=myvector(length(myvector))
+        newvec=[myvector(1:end) mynum];
+    else
+        for i=1:length(myvector) 
+            if (mynum>myvector(i))&&(mynum<myvector(i+1))
+                newvec=[myvector(1:i) mynum myvector(i+1:end)];
+            elseif (mynum==myvector(i))&&(mynum==myvector(i+1))
+                newvec=[myvector(1:i) mynum myvector(i+1:end)];
+            elseif (mynum==myvector(i))&&(mynum<myvector(i+1))
+                newvec=[myvector(1:i) mynum myvector(i+1:end)];
+            end
+        end
+    end
+end
+
+
+Script: 
+
+[myvector]=xlsread('ex5.xlsx');
+disp(myvector)
+mynum=input('Enter an integer: ');
+newvec=insertdata(myvector,mynum);
+disp(newvec)
+xlswrite('ex5.xlsx',newvec)
+
+
+Outcome:
+
+>> scriptinsertdata
+     2     3     5     6     8    10
+Enter an integer: 7
+     2     3     5     6     7     8    10
+>> scriptinsertdata
+     2     3     5     6     7     8    10
+Enter an integer: 1
+     1     2     3     5     6     7     8    10
+>> scriptinsertdata
+     1     2     3     5     6     7     8    10
+Enter an integer: 10
+     1     2     3     5     6     7     8    10    10
+
+HomeworkSheet. Ex.6
+for i=1:25
+    mysheet=sprintf('xlsread(''E:\\ex6\\boringrepetitivetask%d.xls'')',i);
+matrix=eval(mysheet);
+matrix(2,2)=matrix(2,2)+50;    mysave=sprintf('xlswrite(''boringrepetitivetask%dsolved.xls'',matrix)',i);
+eval(mysave);
+end
