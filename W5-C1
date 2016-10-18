@@ -17,4 +17,49 @@ ans =
   mask      1x6                 6  logical              
   vect      1x5                40  double               
     
-    
+    >> vect>11 %gives a mask as an output
+ans =
+     0     1     1     1     0
+Problem finding getMapfileName in com.mathworks.mlwidgets.help.HelpUtils: null
+>> sum(vect>11)
+ans =
+     3
+>> %there are 3 ones
+>> vect(vect>11) 
+ans =
+    22    33    44
+>> (vect>11)&(vect<33)
+ans =
+     0     1     0     0     0
+>> (vect<33)
+ans =
+     1     1     0     0     1
+>> (vect>11)&(vect<33)
+ans =
+     0     1     0     0     0
+>> vect((vect>11)&(vect<33))
+ans =
+    22
+>> vect(vect<33)=99999
+vect =
+       99999       99999          33          44       99999
+
+Same as
+>> vect([1 2 5])=99999
+vect =
+       99999       99999          33          44       99999
+>> find(mask) %find positions where you have ones in a mask
+ans =
+     1     3     5
+---------
+>> vect(vect>100)
+ans =
+       99999       99999       99999
+>> find(vect>100) %for the positions
+ans =
+     1     2     5
+Importance in matlab of vectorization and preallocation:
+Adding values to a vector is very inefficient, because matlab creates another vector, copies the previous vector, and adds the new variable. Long process.
+Preallocation: save memory for that and then allocate the value.
+ Vectorization:
+
