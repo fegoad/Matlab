@@ -1,0 +1,52 @@
+>> a=[11 22 33 22 66 44]
+
+a =
+
+    11    22    33    22    66    44
+
+>> max(a)
+
+ans =
+
+    66
+
+>> format compact
+>> [out1 out2]=max(a)
+out1 =
+    66
+out2 =
+     5
+>> b=rand(4)
+b =
+    0.2785    0.1576    0.8003    0.7922
+    0.5469    0.9706    0.1419    0.9595
+    0.9575    0.9572    0.4218    0.6557
+    0.9649    0.4854    0.9157    0.0357
+>> max(b)
+ans =
+    0.9649    0.9706    0.9157    0.9595
+>> %shows the  maximum per column
+>> max(b,[],2) %this 2 is showing the dimension, if its 2 it is a column, if it is a 1 it is showing the results in rows.
+ans =
+    0.8003
+    0.9706
+    0.9575
+    0.9649
+>> max(b,[],1) %this 1 is showing the dimension, if its 2 it is a column, if it is a 1 it is showing the results in rows.
+ans =
+    0.9649    0.9706    0.9157    0.9595
+>> %second imput argument is disregarded, if you put only 2 input arguments, it is going to compare first input argument and second argument.
+>> %it is going to compare the first input argument with the second max(b,2). for example a 2 here, and it is going to display the maximum of the two
+>> max(b,2)
+ans =
+     2     2     2     2
+     2     2     2     2
+     2     2     2     2
+     2     2     2     2
+>> max(max(b)) %it is going to show the biggest of all
+ans =
+    0.9706
+>> 
+>> max(b(:)) %vector indexing instead of matrix indexing. if we add : we say matlab to consider ghis as a vector, as it is asingle vector it isgoing to show directly one max value instead of four shown before
+ans =
+    0.9706
