@@ -1,0 +1,233 @@
+>> randperm(5) %will give values 1 to 5 in a random order
+ans =
+     1     4     5     3     2
+>> randperm(5) %will give values 1 to 5 in a random order
+ans =
+     1     2     4     3     5
+>> %why is it necessary? It is very handy if you want to randomize samples.
+%Imagine Rt=b1 * Rt-1 + b2 * Rt-2 . 
+%1 1 2 3
+%2 2 3 4
+%3 3 4 5
+%...
+%rand perm takes different lines for testing and a different one for training. Therefore it is not going to
+%follow a pattern. For time-series. Shuffle information to have a balance sample for training , and a balanced
+% sample for testing.
+>> bond.ref='A001'
+bond = 
+  struct with fields:
+
+    ref: 'A001'
+>> %Creates an structure, this is abond and has a field called ref which value is 'A001'. If you want to addinformation,
+%you need to create a second field:
+>> bond.irr=.02
+bond = 
+  struct with fields:
+
+    ref: 'A001'
+    irr: 0.0200
+>> %now bond contains two different fields.
+>> bond
+bond = 
+  struct with fields:
+
+    ref: 'A001'
+    irr: 0.0200
+>> %we can create an array of these structures. Also, in workspace has a  different icon.
+>> whos
+  Name      Size            Bytes  Class     Attributes
+
+  ans       1x5                40  double              
+  bond      1x1               368  struct              
+
+>> bond
+bond = 
+  struct with fields:
+
+    ref: 'A001'
+    irr: 0.0200
+>> mybonds(1:3)=bond
+mybonds = 
+  1×3 struct array with fields:
+    ref
+    irr
+>> mybonds %iby3 structure (array of structures) and the content is the following one:
+mybonds = 
+  1×3 struct array with fields:
+    ref
+    irr
+>> %how do i target positions in this vector:
+>> mybonds(2).ref='A002'
+mybonds = 
+  1×3 struct array with fields:
+    ref
+    irr
+>> mybonds(3).ref='A003'
+mybonds = 
+  1×3 struct array with fields:
+    ref
+    irr
+>> mybonds
+mybonds = 
+  1×3 struct array with fields:
+    ref
+    irr
+>> mybonds(2)
+ans = 
+  struct with fields:
+
+    ref: 'A002'
+    irr: 0.0200
+>> mybonds(1)
+ans = 
+  struct with fields:
+
+    ref: 'A001'
+    irr: 0.0200
+>> mybonds(3)
+ans = 
+  struct with fields:
+
+    ref: 'A003'
+    irr: 0.0200
+>> clear all
+>> mybonds=struct('ref',['A01','A02','A03'],'irr',(0.02,0.03,0.04))
+ mybonds=struct('ref',['A01','A02','A03'],'irr',(0.02,0.03,0.04))
+                                                     ↑
+Error: Expression or statement is incorrect--possibly unbalanced (, {, or [.
+ 
+>> mybonds=struct('ref',['A01','A02','A03'],'irr',[0.02,0.03,0.04])
+mybonds = 
+  struct with fields:
+
+    ref: 'A01A02A03'
+    irr: [0.0200 0.0300 0.0400]
+>> mybonds(3)
+Index exceeds matrix dimensions. 
+>> mybonds
+mybonds = 
+  struct with fields:
+
+    ref: 'A01A02A03'
+    irr: [0.0200 0.0300 0.0400]
+>> [mybonds(:).ref]
+ans =
+A01A02A03
+>> [mybonds(:).irr]
+ans =
+    0.0200    0.0300    0.0400
+>> %advanced functions in matlab return structures instead of single numbers, this is why this is important
+
+>> regress(y,X)
+ans =
+    3.2066OU
+>> %it is only coefficients
+
+>> [out1 out2]=regress(y,X)
+out1 =
+    3.2066
+out2 =
+    3.1188    3.2944
+>> %lower bound and upper bound
+
+>> [out1,out2]=regress(y,[ones(size(X,1),1) X]) %let's say we want the constant in the first column
+out1 =
+    1.5935
+    2.9670
+out2 =
+    1.1684    2.0186
+    2.8950    3.0389
+>> %prediction intervals for the constant and for the slope.
+%with ones we are forcing to put the constant.
+out1 is the imddle point, out2 is lower bound and upper bound
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%55
+
+>> regstats(y,X) %will open a window and give you the opportunity to get the outcomes
+Variables have been created in the base workspace.
+>> %MATLAB creates new variables with the optuputs you have choosen.
+>> beta
+beta =
+    1.5935
+    2.9670
+>> mse
+mse =
+    0.0920
+>> r
+r =
+    0.0369
+   -0.0422
+   -0.1748
+    0.5035
+   -0.4312
+   -0.4149
+   -0.0626
+   -0.0904
+   -0.1118
+    0.3394
+    0.0927
+    0.3555
+>> tstat
+tstat = 
+  struct with fields:
+
+    beta: [2×1 double]
+      se: [2×1 double]
+       t: [2×1 double]
+    pval: [2×1 double]
+     dfe: 10
+>> %structure beta is a vector of 2, t is a vector of 2 tstatistic for each of those
+>> tstat.t
+ans =
+    8.3520
+   91.8893
+>> tstat.beta
+ans =
+    1.5935
+    2.9670
+>> tstat.pval
+ans =
+   1.0e-05 *
+    0.8059
+    0.0000
+>> %pvalue for the constant and for the slope
+>> tstat.pval(1)
+ans =
+   8.0594e-06
+>> %if we do regstats and we capture the output.
+>> outreg=regstats(y,X) %matlab is going to gather oall the information and its going to calculate outreg
+outreg = 
+  struct with fields:
+
+        source: 'regstats'
+             Q: [12×2 double]
+             R: [2×2 double]
+          beta: [2×1 double]
+          covb: [2×2 double]
+          yhat: [12×1 double]
+             r: [12×1 double]
+           mse: 0.0920
+       rsquare: 0.9988
+    adjrsquare: 0.9987
+      leverage: [12×1 double]
+        hatmat: [12×12 double]
+          s2_i: [12×1 double]
+        beta_i: [2×12 double]
+      standres: [12×1 double]
+       studres: [12×1 double]
+       dfbetas: [2×12 double]
+         dffit: [12×1 double]
+        dffits: [12×1 double]
+      covratio: [12×1 double]
+         cookd: [12×1 double]
+         tstat: [1×1 struct]
+         fstat: [1×1 struct]
+        dwstat: [1×1 struct]
+>> %outreg is an structure. 
+>> outreg.beta
+ans =
+    1.5935
+    2.9670
+>> 
+
