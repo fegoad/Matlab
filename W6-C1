@@ -231,3 +231,135 @@ ans =
     2.9670
 >> 
 
+>> dirinfo=dir
+dirinfo = 
+  14×1 struct array with fields:
+    name
+    folder
+    date
+    bytes
+    isdir
+    datenum
+>> dirinfo.name
+ans =
+.
+ans =
+..
+ans =
+Attaway_Mmatlab_practical_intro.pdf
+ans =
+__MACOSX
+ans =
+calcarea.m
+ans =
+dataOct
+ans =
+dataOct.zip
+ans =
+ibexandsp comp.xls
+ans =
+ibexandsp.m
+ans =
+ibexandsp.xls
+ans =
+regdata (1).xls
+ans =
+week2
+ans =
+week3
+ans =
+week4
+>> %we get all the files with this funciton
+
+>> dirinfo(3).name
+ans =
+Attaway_Mmatlab_practical_intro.pdf
+
+>> dir('*.m') %any file should be .m in the foloder that is selected in matlab
+
+calcarea.m   ibexandsp.m  
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+    >> data=rand(1,10);
+>> plot(data)
+Warning: MATLAB has disabled some advanced graphics rendering features by switching to software OpenGL. For more information, click
+here. 
+>> hist(data)
+>> %matlab is going to overwright hist over plot. To solve it we should use:
+>> plot(data)
+>> figure
+>> hist(data)
+>> %but what if I want to add a title. what should I do?
+>> title('Chart 1') %mATLAB is going to change only the last selection. The active one. Last one being used.
+>> title('Chart 1') %mATLAB is going to change only the last selection. The active one. Last one being used.
+>> %but there is an alternative to do it better
+>> %we can select another
+>> figure(2)
+>> figure(2) %selects the figure 2
+>> 
+>> title('Chart v2')
+>> figure(1)
+>> title('Chart v1')
+>> 
+
+
+>> %now let's use another thing
+>> %sublot defines a matrix of m,n , and the last ome p is the location where you want to have activated thechart
+
+>> subplot(2,2,1)
+>> hist(data)
+>> subplot(2,2,2) %we are activating position 2
+>> plot(data)
+>> subplot(2,2,3) %we are activating position 2
+>> plot(data,'r')
+>> %now let's rty to make it larger so subplot(2,2,3) fulfulls all the window.
+>> subplot(2,2,[3:4]) %we are activating position 2
+>> plot(data,'r')
+>> %we haveselected positions 3 and 4, there fore it is using all the pannel down
+>>
+
+
+
+>> subplot(2,2,1)
+>> hist(data)
+>> subplot(2,2,[2 4])
+>> plot(data)
+>> subplot(2,2,3)
+>> hist(data)
+>> 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+>> %how to import data in plain text
+>> data=[11 22 33;44 55 66]
+data =
+    11    22    33
+    44    55    66
+>> %how do you save this in a file that is in plain text?
+>> save mydata.dat data -ascii %you can sava a pice of information at a time. And add a -ascii parameter at the end
+>> %you can extend this file
+>> save mydata.dat data -ascii -append
+>> %now I have the matrix coppied twice.
+>> 
+
+>> clear all
+>> load mydata.dat
+>> mydata
+mydata =
+    11    22    33
+    44    55    66
+    11    22    33
+    44    55    66
+>> 
