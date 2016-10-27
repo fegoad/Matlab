@@ -363,3 +363,9 @@ mydata =
     11    22    33
     44    55    66
 >> 
+
+
+
+-------------------------------
+When debugging you can put stops with conditions. if at the debugging point this expression is true, then stop.
+
